@@ -1,5 +1,5 @@
 # NvGraphicsCardSwitcher
-NVidia Graphics Card Switcher via NVAPI with Visual Studio 2013 .Net
+A library of NVidia graphics card switcher via NVAPI with Visual Studio 2013 .Net
 
 <img src='./NvGraphicsCardSwitcherTest.png' width=300>
 <img src='./NVSettingsPanel.png' width=800>
@@ -12,3 +12,7 @@ NVidia Graphics Card Switcher via NVAPI with Visual Studio 2013 .Net
 ## NvApiWrapper
 NvApiWrapper is an open source wrapper for NVidia API.
 Wrapper is developed primarily to deal with 3D Vision technology and still does not support other features.
+
+## Reference
+1. http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf
+2. https://developer.nvidia.com/nvapi
