@@ -1,5 +1,6 @@
 # NvGraphicsCardSwitcher
-A library of NVidia graphics card switcher via NVAPI with Visual Studio 2013 .Net
+A library of NVidia graphics card switcher via NVAPI with Visual Studio 2013 .Net. 
+It will show how to switch graphic cards from Intel to NVidia.
 
 <img src='./NvGraphicsCardSwitcherTest.png' width=300>
 <img src='./NVSettingsPanel.png' width=800>
