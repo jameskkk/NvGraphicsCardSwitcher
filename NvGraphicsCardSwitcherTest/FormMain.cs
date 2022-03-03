@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
 using NvGraphicsCardSwitcher;
 
 namespace NvGraphicsCardSwitcherTest
@@ -18,7 +19,31 @@ namespace NvGraphicsCardSwitcherTest
             InitializeComponent();
             string display;
             int result = NVidia.IsNVDisplay(out display);
-            Console.WriteLine("IsNVDisplay = " + display);
+            Console.WriteLine("IsNVDisplay = " + display + ", result = " + result.ToString());
+
+            int select = NVidia.GetNVIDIA();
+            Console.WriteLine("NV select = " + select.ToString());
+
+            int connect = NVidia.GetConnectorInfo();
+            Console.WriteLine("NV connect = " + connect.ToString());
+
+            using (var searcher = new ManagementObjectSearcher("select * from Win32_VideoController"))
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    Console.WriteLine("--------------------------------------------------------------");
+                    Console.WriteLine("Name  -  " + obj["Name"]);
+                    Console.WriteLine("DeviceID  -  " + obj["DeviceID"]);
+                    Console.WriteLine("AdapterRAM  -  " + obj["AdapterRAM"]);
+                    Console.WriteLine("AdapterDACType  -  " + obj["AdapterDACType"]);
+                    Console.WriteLine("Monochrome  -  " + obj["Monochrome"]);
+                    Console.WriteLine("InstalledDisplayDrivers  -  " + obj["InstalledDisplayDrivers"]);
+                    Console.WriteLine("DriverVersion  -  " + obj["DriverVersion"]);
+                    Console.WriteLine("VideoProcessor  -  " + obj["VideoProcessor"]);
+                    Console.WriteLine("VideoArchitecture  -  " + obj["VideoArchitecture"]);
+                    Console.WriteLine("VideoMemoryType  -  " + obj["VideoMemoryType"] );
+                }
+            }
         }
 
         private void btnChangeNV_Click(object sender, EventArgs e)
